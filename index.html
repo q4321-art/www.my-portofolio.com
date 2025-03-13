@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOME TO MY portofolio🥱</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            color: white;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            transition: opacity 1s ease-in-out;
+        }
+        .morphing {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            animation: morph 6s infinite alternate ease-in-out;
+            transition: all 1s ease-in-out;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .morphing img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes morph {
+            0% {
+                border-radius: 0%;
+            }
+            50% {
+                border-radius: 40% 60% 60% 40% / 50% 30% 70% 50%;
+            }
+            100% {
+                border-radius: 0%;
+            }
+        }
+        .info {
+            margin-top: 20px;
+            transition: opacity 1s ease-in-out;
+        }
+        .contact {
+            margin-top: 20px;
+            transition: opacity 1s ease-in-out;
+        }
+        .contact a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .more-options {
+            margin-top: 30px;
+            transition: opacity 1s ease-in-out;
+        }
+        .more-options button {
+            background: none;
+            border: 1px solid white;
+            color: white;
+            padding: 10px 15px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+        .more-options button:hover {
+            background: white;
+            color: black;
+        }
+        .hidden-section {
+            display: none;
+            margin-top: 20px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+        .contact p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            width: fit-content;
+        }
+        .contact p i {
+            background: black;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function toggleMore() {
+            var section = document.getElementById('hidden-section');
+            var container = document.getElementById('container');
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'scale(1)';
+                }, 10);
+                container.style.opacity = '0';
+                setTimeout(() => {
+                    container.style.display = 'none';
+                }, 1000);
+            } else {
+                section.style.opacity = '0';
+                section.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    section.style.display = 'none';
+                    container.style.display = 'block';
+                    setTimeout(() => {
+                        container.style.opacity = '1';
+                    }, 10);
+                }, 1000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="container" class="container">
+        <div class="morphing"><img src="27..jpg" alt="profile"></div>
+        <div class="info">
+            <h1>AGAM AL HAKIM HASIBUAN</h1>
+            <p>Hanya Orang Biasa</p>
+        </div>
+        <div class="contact">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="more-options">
+            <button onclick="toggleMore()">Klik Lebih Lanjut</button>
+        </div>
+    </div>
+    <div id="hidden-section" class="hidden-section">
+        <h2>Tentang Saya</h2>
+        
+        <p>perkenalkan saya Agam Al Hakim Hasibuan lahir pada tahun 2005 di pekanbaru riau. 
+            Sejak kecil,saya memiliki minat dalam dunia teknologi dan pemrograman.  
+            Dalam perjalanan pendidikan,Saya dulu menempuh pendidikan dasar di SDN 016 kenantan tapung Kab Kampar Riau,kemudian melanjutkan ke ponpes As salam Naga Beralih Kampar Utara.
+            Semangat saya dalam bidang teknologi semakin berkembang ketika saya bersekolah di SMA negeri 4 tapung muara mahat baru kab kampar kec tapung riau, di mana saya mulai mendalami pemrograman dan desain web.  
+            Saat ini, saya sedang menempuh pendidikan di Universitas Pahlawan Tuanku Tambusai bangkinang,kab kampar riau dengan fokus pada jurusan teknik informatika. 
+            Ia aktif dalam mengembangkan berbagai proyek berbasis web, termasuk Jasa joki tugas,Jasa pembuatan website seperti portofolio pribadi, aplikasi web toko online, serta proyek blog pribadi yang mencerminkan ketertarikannya dalam dunia pengembangan web.</p>
+       
+            <h2>Kontak Saya</h2>
+        <p><i class="fas fa-envelope"></i> Email: agam06614@gmail.com</p>
+        <p><i class="fas fa-phone"></i> WhatsApp: +62 87856643707</p>
+        <button onclick="toggleMore()">Kembali</button>
+    </div>
+</body>
+</html>
